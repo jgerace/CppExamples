@@ -10,7 +10,7 @@ static void initList();
 static void printList(int *list, int numElements);
 static void insertionSort();
 
-int main2(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     initList();
     printList(list, NUM_ELEMENTS);
