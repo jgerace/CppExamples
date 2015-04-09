@@ -8,15 +8,15 @@ static int list[NUM_ELEMENTS];
 
 static void initList();
 static void printList(int *list, int numElements);
-static void bubbleSort();
+static void selectionSort();
 
 int main(int argc, char *argv[])
 {
     initList();
     printList(list, NUM_ELEMENTS);
 
-    cout << "running bubble sort" << endl;
-    bubbleSort();
+    cout << "running selection sort" << endl;
+    selectionSort();
     printList(list, NUM_ELEMENTS);
 
     initList();
@@ -24,16 +24,18 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void bubbleSort()
+void selectionSort()
 {
     for(int ii = 0; ii < NUM_ELEMENTS-1; ii++) {
-        for(int jj = 0; jj < NUM_ELEMENTS-1-ii; jj++) {
-            if(list[jj+1] < list[jj]) {
-                int temp = list[jj];
-                list[jj] = list[jj+1];
-                list[jj+1] = temp;
+        int min = ii;
+        for(int jj = ii+1; jj < NUM_ELEMENTS; jj++) {
+            if(list[jj] < list[min]) {
+                min = jj;
             }
         }
+        int temp = list[ii];
+        list[ii] = list[min];
+        list[min] = temp;
     }
 }
 
