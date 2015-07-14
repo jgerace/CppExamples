@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstddef> // for NULL
+#include <algorithm>
 #include "BinaryTree.h"
 
 using namespace std;
@@ -154,6 +155,49 @@ Node *BinaryTree::findData(Node *root, int data)
     }
 
     return NULL;
+}
+
+int BinaryTree::getDepth()
+{
+    return getDepth(head);
+}
+
+int BinaryTree::getDepth(Node *root)
+{
+    if(!root) {
+        return 0;
+    }
+
+    int ldepth = getDepth(root->left);
+    int rdepth = getDepth(root->right);
+
+
+    if(ldepth > rdepth) {
+        return ldepth+1;
+    }
+    else {
+        return rdepth+1;
+    }
+}
+
+int BinaryTree::getDiameter()
+{
+    return getDiameter(head);
+}
+
+int BinaryTree::getDiameter(Node *root)
+{
+    if(root == NULL) {
+        return 0;
+    }
+
+    int lHeight = getDepth(root->left);
+    int rHeight = getDepth(root->right);
+
+    int lDiam = getDiameter(root->left);
+    int rDiam = getDiameter(root->right);
+
+    return max(lHeight+rHeight+1, max(lDiam, rDiam));
 }
 
 void BinaryTree::deleteTree()

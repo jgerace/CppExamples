@@ -7,12 +7,17 @@ int main()
 {
     BinaryTree tree;
 
+    cout << "tree depth: " << tree.getDepth() << endl;
+
+    cout << "adding elements" << endl;
     tree.insertData(5);
     tree.insertData(8);
     tree.insertData(2);
     tree.insertData(1);
     tree.insertData(10);
     tree.insertData(7);
+
+    cout << "tree depth: " << tree.getDepth() << endl;
 
     if(tree.findData(4)) {
         cout << "found 4" << endl;
@@ -25,6 +30,8 @@ int main()
     if(!tree.findData(20)) {
         cout << "NOT found 20" << endl;
     }
+
+    cout << "tree diameter: " << tree.getDiameter() << endl;
 
     tree.printInorder();
     cout << endl;

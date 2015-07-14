@@ -13,6 +13,8 @@ class BinaryTree
         void insertData(int data);
         void deleteData(int data);
         bool findData(int data);
+        int  getDepth();
+        int  getDiameter();
         void deleteTree();
         void printInorder();
 
@@ -26,6 +28,8 @@ class BinaryTree
         Node *findData(Node *root, int data);
         Node *deleteData(Node *root, int data);
         Node *getMinNode(Node *root);
+        int  getDepth(Node *root);
+        int  getDiameter(Node *root);
         void deleteTree(Node *root);
         void printInorder(Node *root);
 };

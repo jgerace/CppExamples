@@ -20,6 +20,18 @@ Node *insertFront(Node *head, int data) // to modify head in place, use Node **h
      return head;
 }
 
+Node *deleteFront(Node *head)
+{
+    if(head == NULL) {
+        return head;
+    }
+
+    Node *temp = head->next;
+    delete head;
+    head = temp;
+    return head;
+}
+
 bool find(Node *head, int data) // is a piece of data in the list?
 {
      while(head != NULL) {
@@ -73,9 +85,13 @@ int main(int argc, char *argv[])
        cerr << "3 is not in list" << endl;
     }
 
+    cout << "Deleting first element" << endl;
+    head = deleteFront(head);
+
+    printList(head);
+
     cerr << "deleting" << endl;
     deleteList(&head);
 
-    system("PAUSE");
-    return EXIT_SUCCESS;
+    return 0;
 }
